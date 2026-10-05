@@ -451,6 +451,12 @@ a{
   display:none;
 }
 
+/* CLOTHING — SUMMER REVIEWS ONLY */
+
+#clothing > .product-grid:not(#dynamic-clothing){
+  display:none;
+}
+
 /* EDITORIAL */
 
 .editorial{
@@ -4757,20 +4763,22 @@ function renderDynamicProducts(){
 
   }
 
+  /* =====================================================
+     CLOTHING — SUMMER REVIEWS ONLY
+     ===================================================== */
+
   if(clothing){
 
     clothing.innerHTML =
       dynamicProducts
         .filter(function(product){
 
-          return categoryMatches(
-            product,
-            [
-              "clothing",
-              "cloth",
-              "clothes"
-            ]
-          );
+          return String(
+            product.name || ""
+          )
+          .trim()
+          .toLowerCase() ===
+          "summer reviews";
 
         })
         .map(function(product){
