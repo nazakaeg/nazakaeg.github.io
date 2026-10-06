@@ -66,7 +66,7 @@ a{
 ===================================================== */
 
 .navbar{
-  height:78px;
+  height:100px;
   background:#fff;
   border-bottom:1px solid var(--line);
   display:grid;
@@ -78,95 +78,80 @@ a{
   z-index:1000;
 }
 
+
+/* LOGO */
+
 .logo{
   grid-column:2;
-  font-family:Georgia,"Times New Roman",serif;
-  font-size:29px;
-  letter-spacing:-1.5px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
   text-align:center;
   line-height:1;
+  color:#111;
 }
 
-.logo span{
-  display:block;
-  margin-top:5px;
-  font-family:Arial,sans-serif;
-  font-size:6px;
-  letter-spacing:4px;
-  text-transform:uppercase;
-  color:#888;
+.logo-main{
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:34px;
+  font-weight:700;
+  letter-spacing:-2px;
 }
+
+.logo-sub{
+  margin-top:7px;
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:9px;
+  font-weight:400;
+  letter-spacing:3px;
+  color:#777;
+}
+
+
+/* LEFT */
 
 .nav-left{
   grid-column:1;
   display:flex;
   align-items:center;
-  gap:28px;
+  justify-content:flex-start;
 }
+
+.search-btn{
+  border:0;
+  background:none;
+  padding:0;
+  color:#111;
+  font-size:12px;
+  font-weight:500;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+
+/* RIGHT */
 
 .nav-right{
   grid-column:3;
   display:flex;
   align-items:center;
   justify-content:flex-end;
-  gap:20px;
+  gap:24px;
 }
 
-.nav-link{
+.basket-btn{
   border:0;
   background:none;
-  font-size:8px;
+  padding:0;
+  color:#111;
+  font-size:12px;
+  font-weight:500;
   letter-spacing:2px;
   text-transform:uppercase;
-}
-
-.icon-btn{
-  border:0;
-  background:none;
-  width:25px;
-  height:25px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:#111;
-}
-
-.search-icon{
-  width:15px;
-  height:15px;
-  border:1.4px solid #111;
-  border-radius:50%;
-  position:relative;
-}
-
-.search-icon:after{
-  content:"";
-  position:absolute;
-  width:6px;
-  height:1.4px;
-  background:#111;
-  right:-5px;
-  bottom:-2px;
-  transform:rotate(45deg);
-}
-
-.bag-icon{
-  width:14px;
-  height:15px;
-  border:1.2px solid #111;
-  position:relative;
-}
-
-.bag-icon:before{
-  content:"";
-  position:absolute;
-  width:6px;
-  height:5px;
-  border:1.2px solid #111;
-  border-bottom:0;
-  border-radius:5px 5px 0 0;
-  left:2.8px;
-  top:-6px;
 }
 
 .menu-btn{
@@ -174,6 +159,30 @@ a{
   border:0;
   background:none;
   font-size:20px;
+  color:#111;
+}
+
+
+/* SEARCH LINE */
+
+.search-line{
+  width:14px;
+  height:14px;
+  border:1.5px solid #111;
+  border-radius:50%;
+  position:relative;
+  display:inline-block;
+}
+
+.search-line:after{
+  content:"";
+  position:absolute;
+  width:6px;
+  height:1.5px;
+  background:#111;
+  right:-5px;
+  bottom:-2px;
+  transform:rotate(45deg);
 }
 
 
@@ -183,7 +192,7 @@ a{
 
 .hero{
   width:100%;
-  height:calc(100vh - 78px);
+  height:calc(100vh - 100px);
   min-height:600px;
   background-image:url("IMG_3418.jpeg");
   background-size:cover;
@@ -224,6 +233,27 @@ a{
   font-size:9px;
   letter-spacing:2.5px;
   text-transform:uppercase;
+}
+
+
+/* =====================================================
+   BRAND STATEMENT
+===================================================== */
+
+.brand-statement{
+  padding:75px 8% 80px;
+  text-align:center;
+  background:#fff;
+}
+
+.brand-statement p{
+  max-width:900px;
+  margin:0 auto;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:clamp(22px,3vw,38px);
+  font-weight:400;
+  line-height:1.25;
+  letter-spacing:-1px;
 }
 
 
@@ -639,29 +669,49 @@ a{
 @media(max-width:700px){
 
   .navbar{
-    height:65px;
+    height:70px;
     grid-template-columns:1fr auto 1fr;
     padding:0 5%;
   }
 
-  .logo{
-    font-size:23px;
+  .logo-main{
+    font-size:25px;
+    letter-spacing:-1.5px;
   }
 
-  .nav-left{
-    display:none;
+  .logo-sub{
+    margin-top:5px;
+    font-size:7px;
+    letter-spacing:2.5px;
+  }
+
+  .search-btn,
+  .basket-btn{
+    font-size:8px;
+    letter-spacing:1.5px;
   }
 
   .nav-right{
-    gap:14px;
+    gap:13px;
+  }
+
+  .search-line{
+    width:11px;
+    height:11px;
+  }
+
+  .search-line:after{
+    width:5px;
+    right:-4px;
+    bottom:-2px;
   }
 
   .menu-btn{
-    display:block;
+    display:none;
   }
 
   .hero{
-    height:calc(100vh - 65px);
+    height:calc(100vh - 70px);
     min-height:520px;
     background-position:center;
   }
@@ -674,6 +724,16 @@ a{
   .hero-subtitle{
     font-size:7px;
     letter-spacing:2px;
+  }
+
+  .brand-statement{
+    padding:55px 7% 60px;
+  }
+
+  .brand-statement p{
+    font-size:22px;
+    line-height:1.35;
+    letter-spacing:-.5px;
   }
 
   .section{
@@ -772,37 +832,30 @@ NAVBAR
 
   <div class="nav-left">
 
-    <button class="nav-link"
-            onclick="goHome()">
-      Home
-    </button>
+    <button
+      class="search-btn"
+      aria-label="Search"
+      onclick="focusSearch()">
 
-    <button class="nav-link"
-            onclick="goClothing()">
-      Clothing
-    </button>
+      <span class="search-line"></span>
+      Search
 
-    <button class="nav-link"
-            onclick="goHijabs()">
-      Hijabs
-    </button>
-
-    <button class="nav-link"
-            onclick="goJeans()">
-      Jeans
     </button>
 
   </div>
 
 
-  <a href="#home"
-     class="logo"
-     onclick="goHome()">
+  <a
+    href="#home"
+    class="logo"
+    onclick="goHome()">
 
-    Nazaka
+    <span class="logo-main">
+      NAZAKA
+    </span>
 
-    <span>
-      Designs
+    <span class="logo-sub">
+      نَزاكة
     </span>
 
   </a>
@@ -810,26 +863,12 @@ NAVBAR
 
   <div class="nav-right">
 
-    <button class="icon-btn"
-            aria-label="Search"
-            onclick="focusSearch()">
+    <button
+      class="basket-btn"
+      aria-label="Basket"
+      onclick="showBag()">
 
-      <span class="search-icon"></span>
-
-    </button>
-
-    <button class="icon-btn"
-            aria-label="Bag"
-            onclick="showBag()">
-
-      <span class="bag-icon"></span>
-
-    </button>
-
-    <button class="menu-btn"
-            onclick="toggleMobileMenu()">
-
-      ☰
+      Basket
 
     </button>
 
@@ -849,8 +888,9 @@ MAIN
 HERO
 ===================================================== -->
 
-<section id="home"
-         class="hero">
+<section
+  id="home"
+  class="hero">
 
   <div class="hero-content">
 
@@ -868,11 +908,26 @@ HERO
 
 
 <!-- =====================================================
+BRAND STATEMENT
+===================================================== -->
+
+<section class="brand-statement">
+
+  <p>
+    Contemporary fashion designed with confidence,
+    individuality, and the Nazaka identity.
+  </p>
+
+</section>
+
+
+<!-- =====================================================
 CLOTHING
 ===================================================== -->
 
-<section id="clothing"
-         class="section">
+<section
+  id="clothing"
+  class="section">
 
   <div class="section-heading">
 
@@ -886,8 +941,9 @@ CLOTHING
 
   </div>
 
-  <div id="dynamic-clothing"
-       class="product-grid">
+  <div
+    id="dynamic-clothing"
+    class="product-grid">
 
     <div class="products-loading">
       Loading
@@ -902,8 +958,9 @@ CLOTHING
 HIJABS
 ===================================================== -->
 
-<section id="hijabs"
-         class="section">
+<section
+  id="hijabs"
+  class="section">
 
   <div class="section-heading">
 
@@ -917,8 +974,9 @@ HIJABS
 
   </div>
 
-  <div id="dynamic-hijabs"
-       class="product-grid">
+  <div
+    id="dynamic-hijabs"
+    class="product-grid">
 
     <div class="products-loading">
       Loading
@@ -933,8 +991,9 @@ HIJABS
 JEANS
 ===================================================== -->
 
-<section id="jeans"
-         class="section">
+<section
+  id="jeans"
+  class="section">
 
   <div class="section-heading">
 
@@ -948,8 +1007,9 @@ JEANS
 
   </div>
 
-  <div id="dynamic-jeans"
-       class="product-grid">
+  <div
+    id="dynamic-jeans"
+    class="product-grid">
 
     <div class="products-loading">
       Loading
@@ -982,33 +1042,39 @@ FOOTER
 
     <div class="footer-links">
 
-      <a href="#home"
-         onclick="goHome()">
+      <a
+        href="#home"
+        onclick="goHome()">
         Home
       </a>
 
-      <a href="#clothing"
-         onclick="goClothing()">
+      <a
+        href="#clothing"
+        onclick="goClothing()">
         Clothing
       </a>
 
-      <a href="#hijabs"
-         onclick="goHijabs()">
+      <a
+        href="#hijabs"
+        onclick="goHijabs()">
         Hijabs
       </a>
 
-      <a href="#jeans"
-         onclick="goJeans()">
+      <a
+        href="#jeans"
+        onclick="goJeans()">
         Jeans
       </a>
 
-      <a href="https://instagram.com/nazaka.eg"
-         target="_blank">
+      <a
+        href="https://instagram.com/nazaka.eg"
+        target="_blank">
         Instagram
       </a>
 
-      <a href="https://wa.me/201029153023"
-         target="_blank">
+      <a
+        href="https://wa.me/201029153023"
+        target="_blank">
         WhatsApp
       </a>
 
@@ -1431,8 +1497,9 @@ function dynamicCardHtml(product){
 
   return `
 
-    <div class="product-card"
-         onclick="openProduct('${slug}')">
+    <div
+      class="product-card"
+      onclick="openProduct('${slug}')">
 
       ${tag}
 
@@ -1909,12 +1976,7 @@ function renderProducts(){
     );
 
 
-  /*
-     CLOTHING
-
-     هنا بنجيب كل المنتجات اللي Category بتاعتها
-     Clothing من Google Sheets.
-  */
+  /* CLOTHING */
 
   if(clothing){
 
@@ -1944,9 +2006,7 @@ function renderProducts(){
   }
 
 
-  /*
-     HIJABS
-  */
+  /* HIJABS */
 
   if(hijabs){
 
@@ -1981,9 +2041,7 @@ function renderProducts(){
   }
 
 
-  /*
-     JEANS
-  */
+  /* JEANS */
 
   if(jeans){
 
